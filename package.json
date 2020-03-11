@@ -1,0 +1,25 @@
+{
+  "name": "cypress_qa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tanpnguyen/adad_qa_learn_cypress.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tanpnguyen/adad_qa_learn_cypress/issues"
+  },
+
+  
+  
+  "homepage": "https://github.com/tanpnguyen/adad_qa_learn_cypress#readme",
+  "dependencies": {
+    "cypress": "^4.1.0"
+  }
+}

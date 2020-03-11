@@ -1,0 +1,12 @@
+{
+    "integrationFolder": "cypress/qtest",
+    "pageLoadTimeout": 300000,
+    "chromeWebSecurity": false,
+    "defaultCommandTimeout": 600000,
+    "env": {
+        "url": "https://demo.staging.qtestnet.com/",
+        "username": "trinhvu@qasymphony.com",
+        "password": "admin123",
+        "taURL": "https://demo.staging.qtestnet.com/app/index?name=analytics"
+    }
+}
