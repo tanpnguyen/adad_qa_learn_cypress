@@ -1,0 +1,9 @@
+{
+    "txtusername": "#userName",
+    "txtpassword": "#password",
+    "btnlogin": "#loginButton",
+    "body": "body",
+    "dialogActiveSession": "#activeSessionDialog",
+    "btnTerminateActiveSession": "#activeSessionDialog a",
+    "btnRelogin": "#reloginBtn"
+}

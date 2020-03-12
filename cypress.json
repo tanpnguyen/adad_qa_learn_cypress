@@ -1,12 +1,10 @@
 {
-    "integrationFolder": "cypress/qtest",
+    "integrationFolder": "src/tests",
     "pageLoadTimeout": 300000,
     "chromeWebSecurity": false,
-    "defaultCommandTimeout": 600000,
     "env": {
-        "url": "https://demo.staging.qtestnet.com/",
-        "username": "trinhvu@qasymphony.com",
-        "password": "admin123",
-        "taURL": "https://demo.staging.qtestnet.com/app/index?name=analytics"
+        "url": "http://qtest4ta.staging.qtestnet.com/",
+        "username": "nephelelocal@gmail.com",
+        "password": "admin123"
     }
 }
