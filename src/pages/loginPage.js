@@ -1,34 +1,54 @@
-import loginSelector from '../selectors/loginPage.json'
-class loginPage {
+import loginSelectors from '../selectors/loginPageSelectors.json'
+import commonSelectors from '../selectors/commonSelectors.json'
+import basePage from './basePage.js'
+class loginPage extends basePage {
     constructor() {
-
+        super()
     }
-    inputText = (element, string) => cy.get(element).type(string)
 
-    clickButton = (element) => cy.get(element).click()
+    inputText = (element, string) => cy
+        .get(element)
+        .type(string)
 
-    checkElementVisible = (element) => cy.get(element).should('be.visible')
+    clickButton = (element) => cy
+        .get(element)
+        .click()
+
+    checkElementVisible = (element) => cy
+        .get(element)
+        .should('be.visible')
 
     checkElementVisibleLoginPage = () => {
-        this.checkElementVisible(loginSelector.txtusername)
-        this.checkElementVisible(loginSelector.txtpassword)
-        this.checkElementVisible(loginSelector.btnlogin)
+        this.checkElementVisible(loginSelectors.txtusername)
+        this.checkElementVisible(loginSelectors.txtpassword)
+        this.checkElementVisible(loginSelectors.btnlogin)
     }
 
     loginAction = async (username, password) => {
-        this.inputText(loginSelector.txtusername, username)
-        this.inputText(loginSelector.txtpassword, password)
-        this.clickButton(loginSelector.btnlogin)
-        console.log("Checking if dialog is displayed")
+        // Input username/password then click Login button
+        this.inputText(loginSelectors.txtusername, username)
+        this.inputText(loginSelectors.txtpassword, password)
+        this.clickButton(loginSelectors.btnlogin)
 
-        cy.get(loginSelector.body).then(($dialog) => {
-            if ($dialog.find(loginSelector.dialogActiveSession).length > 0) {
-                cy.get(loginSelector.btnTerminateActiveSession).click({ multiple: true })
-                cy.get(loginSelector.btnRelogin).click()
-            }
-        })
+        // If terminate session is displayed, they will be termited
+        cy
+            .get(loginSelectors.body)
+            .then(($dialog) => {
+                if ($dialog.find(loginSelectors.dialogActiveSession).length > 0) {
+                    cy
+                        .get(loginSelectors.btnTerminateActiveSession)
+                        .each($element => {
+                            $element.click()
+                        });
+                    cy.get(loginSelectors.btnRelogin).click()
+                }
+            })
+    }
 
-
+    verifyLoginSuccessfully = () => {
+        cy
+            .get(commonSelectors.headerWelcome)
+            .should('be.visible')
     }
 }
 export default loginPage
