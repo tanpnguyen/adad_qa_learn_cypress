@@ -1,0 +1,15 @@
+{
+    "tabProjects": "#projects-control",
+    "btnAddNewProject": "#addProjectBtn_label",
+    "txtSearchProject": "#project_list_grid_filter_1 input",
+    "gridProject": ".dojoxGridView .dojoxGridRowTable",
+    "dialogProjectDetail": "#projectDetailDialog",
+    "dialogProjectDetailTitle": "#projectDetailDialog_title",
+    "dialogProjectName": "#projName",
+    "dialogBtnAddProject": "#addProjectAction_label",
+    "msgAddProjectSuccessfully": "#projSuccessfulMsg",
+    "btnOkCloseDialogAddProjectSuccessfully": "#projSuccessfulMsgOK_label",
+    "gridBtnRemoveProject": ".pl-remove",
+    "confirmationDeleteBtnYes": "#removeProjectConfirmationOK_label",
+    "containerProject": "#projects"
+}
