@@ -11,5 +11,7 @@
     "btnOkCloseDialogAddProjectSuccessfully": "#projSuccessfulMsgOK_label",
     "gridBtnRemoveProject": ".pl-remove",
     "confirmationDeleteBtnYes": "#removeProjectConfirmationOK_label",
-    "containerProject": "#projects"
+    "containerProject": "#projects",
+    "gridProjectName": ".dojoxGridRowTable td:nth-child(2) a",
+    "gridProjectId": ".dojoxGridRowTable td:nth-child(1) span"
 }
