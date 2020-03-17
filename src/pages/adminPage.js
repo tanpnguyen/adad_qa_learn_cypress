@@ -13,7 +13,8 @@ class adminPage extends basePage {
     }
 
     verifyNavigateSuccessfully = () => {
-        cy.url()
+        cy
+            .url()
             .should('contain', '/admin/setting')
     }
 
@@ -66,7 +67,7 @@ class adminPage extends basePage {
             .get(adminSelectors.dialogBtnAddProject)
             .click({ force: true })
         cy
-            .get(adminSelectors.msgAddProjectSuccessfully)
+            .get(adminSelectors.msgAddProjectSuccessfully, { timeout: 30000 })
             .should('be.visible')
         cy
             .get(adminSelectors.btnOkCloseDialogAddProjectSuccessfully)
@@ -74,12 +75,36 @@ class adminPage extends basePage {
 
     }
 
-    deleteProject = (projectName) => {
+    searchProject = (projectName) => {
         cy
             .get(adminSelectors.txtSearchProject)
             .clear()
             .type(projectName)
             .type('{enter}')
+    }
+
+    navigateToCreatedProject = (projectName) => {
+        this.searchProject(projectName)
+        cy
+            .wait(2000)
+
+        if (cy.get(adminSelectors.gridProjectName).contains(projectName)) {
+
+            cy
+                .get(adminSelectors.gridProjectId)
+                .each(($cell) => {
+                    const projectId = $cell.text()
+                    const projectUrl = Cypress.env('url') + `p/${projectId}/portal/project#tab=testplan`
+                    cy
+                        .visit(projectUrl)
+                })
+        }
+
+    }
+
+
+    deleteProject = (projectName) => {
+        this.searchProject(projectName)
         cy
             .wait(2000)
 
@@ -87,13 +112,13 @@ class adminPage extends basePage {
             .get(adminSelectors.gridBtnRemoveProject)
             .each($btn => {
                 cy
-                .wrap($btn)
-                .then(()=>{
-                    $btn.click()
-                    cy
-                    .get(adminSelectors.confirmationDeleteBtnYes)
-                    .click()
-                })
+                    .wrap($btn)
+                    .then(() => {
+                        $btn.click()
+                        cy
+                            .get(adminSelectors.confirmationDeleteBtnYes)
+                            .click()
+                    })
 
             })
 
