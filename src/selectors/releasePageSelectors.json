@@ -1,0 +1,7 @@
+{
+    "lblManager": ".icon-manager",
+    "lblTestPlan": "#working-tab_project_label",
+    "btnNewRelease": "#projectReleaseNewRelease",
+    "txtReleaseName": "#portal_release_release_pane_innerEditor .dijitReset.dijitInputInner",
+    "btnSave": "#portal_release_release_saveButton_label"
+}
