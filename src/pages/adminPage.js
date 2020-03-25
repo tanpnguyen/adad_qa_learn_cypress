@@ -2,6 +2,7 @@ import adminSelectors from '../selectors/adminPageSelectors.json'
 import basePage from './basePage.js'
 
 class adminPage extends basePage {
+    projectId = 0
     constructor() {
         super()
     }
@@ -83,7 +84,7 @@ class adminPage extends basePage {
             .type('{enter}')
     }
 
-    navigateToCreatedProject = (projectName) => {
+    getCreatedProjectId = (projectName) => {
         this.searchProject(projectName)
         cy
             .wait(2000)
@@ -93,14 +94,18 @@ class adminPage extends basePage {
             cy
                 .get(adminSelectors.gridProjectId)
                 .each(($cell) => {
-                    const projectId = $cell.text()
-                    const projectUrl = Cypress.env('url') + `p/${projectId}/portal/project#tab=testplan`
-                    cy
-                        .visit(projectUrl)
+                    this.projectId = $cell.text()
+                    
                 })
         }
+    }
+
+    navigateToCreatedProject = (projectId) => {
+        cy
+            .visit(Cypress.env('url') + `p/${projectId}/portal/project#tab=testplan`)
 
     }
+
 
 
     deleteProject = (projectName) => {
