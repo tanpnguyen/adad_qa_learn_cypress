@@ -6,6 +6,7 @@ class basePage {
         "insights": ""
     }
     adminMenu = commonSelectors.adminMenu
+    requirementMenu = commonSelectors.requirementMenu
 
 }
 export default basePage
