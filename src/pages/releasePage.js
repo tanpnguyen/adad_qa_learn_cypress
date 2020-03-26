@@ -23,12 +23,11 @@ class releasePage extends basePage {
     createNewRelease = (releaseName) => {
 
         this.pressCreateNewBtn()
-        //cy
-         //   .get(releaseSelectors.txtReleaseName)
-          //  .should('be.visible')
         cy
-            .get(releaseSelectors.txtReleaseName)
-            .type(releaseName)
+           .get(releaseSelectors.txtReleaseName)
+           .should('be.visible')
+           .click()
+           .type(releaseName)
         cy
             .get(releaseSelectors.btnSave)
             .click()
