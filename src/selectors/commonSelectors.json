@@ -1,5 +1,8 @@
 {
     "headerWelcome":"#welcome",
     "adminMenu": "#userAvatarMenuAdminSetting",
-    "requirementMenu": "#working-tab_requirementId_label"
+    "requirementMenu": "#working-tab_requirementId_label",
+    "globalNotification": "#globalNotification"
+    
+   
 }

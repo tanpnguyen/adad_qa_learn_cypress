@@ -1,4 +1,8 @@
 {
    "txtEditTitle": "#moduleHeader_editableContent",
-   "iconNewModule": "#btnNewModule"
+   "moduleTitle": "#moduleHeader_editableContent.title",
+   "iconNewModule": "#btnNewModule",
+   "btnReload": "#moduleHeader_btnReload",
+   "projectRoot": "span.icon.icon-root"
+   
 }
