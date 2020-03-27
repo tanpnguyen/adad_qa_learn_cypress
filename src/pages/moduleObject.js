@@ -16,43 +16,57 @@ class module extends basePage {
         cy
             .url()
             .should('contain', '/project#tab=requirements')
+       
     }
 
     pressCreateNewBtn = () => {
-    cy
-        .get(moduleSelectors.projectRoot)
+        cy
+        .get(moduleSelectors.projectRoot, {force: true})
         .click()
-    cy
-        .wait(10)   
-    cy
+        .wait(1)
         .get(moduleSelectors.iconNewModule, { timeout: 30000 })
-        .click()       
-            
+        .click()   
     }
-    // getURLParameter = (sParam) => {
-    //     let sPageURL = cy.url();
-    //     let sURLVariables = sPageURL.split('&');
-    //     for (var i = 0; i < sURLVariables.length; i++) {
-    //         var sParameterName = sURLVariables[i].split('=');
-    //         if (sParameterName[0] == sParam) {
-    //             return sParameterName[1];
-    //         }
-    //     }
-    // }
-    updateModuleName = (moduleName) => {
-        //let moduleId = this.getURLParameter('id')
-       // nodeModule = 'requirement-tree-expand-0-' + moduleId;
-    Cypress.on('uncaught:exception', (err, runnable) => {
-            // returning false here prevents Cypress from
-            // failing the test
-            cy 
-            .get(moduleSelectors.txtEditTitle)
-            .click()
-            .wait(5)
-            .click()
-            .type (moduleName)
-            return false
-    })
-    }   
+
+    verifyNewModuleBtnCreatedSuccessfully = () => {
+        cy
+            .url().should('contain', 'create=1')   
+            .get(moduleSelectors.txtEditTitle).should('be.visible')
+    }
+
+    createNewModule = (moduleName) => {
+      
+        this.pressCreateNewBtn()
+       Cypress.on('uncaught:exception', (err, runnable) => {     
+        cy
+           .get(moduleSelectors.txtEditTitle)
+           .wait(1000)
+           .click()
+           .get(moduleSelectors.txtInputTitle)
+           .type(moduleName)
+           .get(moduleSelectors.projectRoot)
+           .click()
+
+           return false
+        })   
+    }
+
+   
+   
+   
+ 
+    // cy
+    //     .get(moduleSelectors.iconNewModule, { timeout: 30000 })
+    //     .click()   
+    //     .get(moduleSelectors.txtEditTitle)
+    //         .click()
+    //         .get(moduleSelectors.moduleName)
+    //         .should('be.visible')
+    //         .find('input')
+    //         .type(moduleName)
+
+    
+     
+
 }
 export default module

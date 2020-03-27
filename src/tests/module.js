@@ -6,18 +6,19 @@ describe('qTest Manager Module', () => {
     beforeEach('Navigate to Requirements page',()=>{
         cy.clearCookies()
         cy.login(Cypress.env('username'),Cypress.env('password'))
-        moduleObj.navigateToRequirements()
-        moduleObj.verifyNavigateSuccessfully()
+      
        
     });
 
-    it('Click New Module button', () => {      
-
-       moduleObj.pressCreateNewBtn();
-       moduleObj.updateModuleName('Automation Module');
-
-    });
-
+    it('Click New Module button', () => {  
+      moduleObj.navigateToRequirements()
+      moduleObj.verifyNavigateSuccessfully()
+      moduleObj.pressCreateNewBtn() 
+      moduleObj.verifyNewModuleBtnCreatedSuccessfully()
+      moduleObj.createNewModule('MLDN')
+        
+});
+   
     //it('Update name, assert new moodule created by clicking on the Reload button', () => {
         
        // moduleObj.updateModuleName('ADAD New Module');
