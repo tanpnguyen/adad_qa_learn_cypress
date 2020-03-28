@@ -8,47 +8,48 @@ class module extends basePage {
 
     navigateToRequirements = () => {
         cy
-        .get(this.requirementMenu)
-        .click({ force: true })
+            .get(this.requirementMenu)
+            .click({ force: true })
     }
-
     verifyNavigateSuccessfully = () => {
         cy
             .url()
             .should('contain', '/project#tab=requirements')
-       
     }
-
     pressCreateNewBtn = () => {
         cy
-        .get(moduleSelectors.projectRoot, {force: true})
-        .click()
-        .wait(1)
-        .get(moduleSelectors.iconNewModule, { timeout: 30000 })
-        .click()   
+            .get(moduleSelectors.projectRoot,{ timeout: 30000 })
+            .click({force: true})
+            .wait(1000)
+            .get(moduleSelectors.iconNewModule,{ timeout: 30000 })
+            .click()            
     }
-
     verifyNewModuleBtnCreatedSuccessfully = () => {
         cy
             .url().should('contain', 'create=1')   
             .get(moduleSelectors.txtEditTitle).should('be.visible')
     }
-
     createNewModule = (moduleName) => {
       
-        this.pressCreateNewBtn()
-       Cypress.on('uncaught:exception', (err, runnable) => {     
+       this.pressCreateNewBtn()
+       this.verifyNewModuleBtnCreatedSuccessfully()
+       cy.wait(1000)
+       Cypress.on('uncaught:exception', (err, runnable) => {    
         cy
-           .get(moduleSelectors.txtEditTitle)
-           .wait(1000)
-           .click()
-           .get(moduleSelectors.txtInputTitle)
-           .type(moduleName)
-           .get(moduleSelectors.projectRoot)
-           .click()
+            .get(moduleSelectors.txtEditTitle,{ timeout: 30000 }).click({force:true})
+            .wait(2000)
+            .get(moduleSelectors.txtInputTitle,{ timeout: 30000 }).type(moduleName) 
+            .get(moduleSelectors.btnReload,{ timeout: 30000 }).click({force:true})
+      
+        // cy.get('#moduleHeader_editableContent').click({force: true}).then(() => {
+        //     cy.get('input#moduleHeader_editableContentInput').invoke()
+        //     cy.wait(1000)
+        //     cy.get('input#moduleHeader_editableContentInput').type('abc')
+           
+        //   })
 
-           return false
-        })   
+      return false
+    })   
     }
 
    

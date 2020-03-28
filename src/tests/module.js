@@ -10,12 +10,10 @@ describe('qTest Manager Module', () => {
        
     });
 
-    it('Click New Module button', () => {  
+    it('Create New Module', () => {  
       moduleObj.navigateToRequirements()
       moduleObj.verifyNavigateSuccessfully()
-      moduleObj.pressCreateNewBtn() 
-      moduleObj.verifyNewModuleBtnCreatedSuccessfully()
-      moduleObj.createNewModule('MLDN')
+      moduleObj.createNewModule('Automation Module')
         
 });
    
