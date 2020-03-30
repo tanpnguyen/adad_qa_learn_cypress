@@ -1,4 +1,5 @@
 import moduleObject from '../pages/moduleObject'
+import module from '../pages/moduleObject';
 
 describe('qTest Manager Module', () => {
     const moduleObj = new moduleObject();
@@ -6,15 +7,15 @@ describe('qTest Manager Module', () => {
     beforeEach('Navigate to Requirements page',()=>{
         cy.clearCookies()
         cy.login(Cypress.env('username'),Cypress.env('password'))
-      
-       
+        moduleObj.navigateToRequirements()
+        moduleObj.verifyNavigateSuccessfully()
     });
 
     it('Create New Module', () => {  
-      moduleObj.navigateToRequirements()
-      moduleObj.verifyNavigateSuccessfully()
-      moduleObj.createNewModule('Automation Module')
-        
+        cy.wait(2000)
+        moduleObj.clickProjectRoot()
+        moduleObj.createNewModule('Automation Module')
+        moduleObj.verifyNewModuleBtnCreatedSuccessfully()        
 });
    
     //it('Update name, assert new moodule created by clicking on the Reload button', () => {

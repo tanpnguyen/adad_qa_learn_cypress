@@ -14,9 +14,9 @@ class module extends basePage {
     verifyNavigateSuccessfully = () => {
         cy
             .url()
-            .should('contain', '/project#tab=requirements')
+            .should('contain','/project#tab=requirements')
     }
-    pressCreateNewBtn = () => {
+    clickProjectRoot = () => {
         cy
             .get(moduleSelectors.projectRoot, { timeout: 30000 })
             .click({ force: true })
