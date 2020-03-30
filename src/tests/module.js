@@ -3,6 +3,7 @@ import module from '../pages/moduleObject';
 
 describe('qTest Manager Module', () => {
     const moduleObj = new moduleObject();
+    let mdlName = 'Automated Module'
 
     beforeEach('Navigate to Requirements page',()=>{
         cy.clearCookies()
@@ -11,26 +12,12 @@ describe('qTest Manager Module', () => {
         moduleObj.verifyNavigateSuccessfully()
     });
 
-    it('Create New Module', () => {  
+    it('Create New Parent Module and Update Name', () => {  
         cy.wait(2000)
-        moduleObj.clickProjectRoot()
-        moduleObj.createNewModule('Automation Module')
-        moduleObj.verifyNewModuleBtnCreatedSuccessfully()        
-});
-   
-    //it('Update name, assert new moodule created by clicking on the Reload button', () => {
-        
-       // moduleObj.updateModuleName('ADAD New Module');
-        // cy
-        //     .wrap(admin.getCreatedProjectId('ADAD_Cypress_Projects'))
-        //     .then(() => {
-        //         admin.navigateToCreatedProject(admin.projectId)
-        //     })
-
-   // });
-
-//     it('Delete test project',()=>{
-//         admin.deleteProject('ADAD_Cypress_Projects')
-//     })
-
+        moduleObj.createNewParentModule()
+        moduleObj.verifyNewModuleBtnCreatedSuccessfully()
+        moduleObj.updateModuleName(mdlName)
+        moduleObj.verifyModuleNameUpdatedSuccessfully(mdlName)
+          
+    });
 })
