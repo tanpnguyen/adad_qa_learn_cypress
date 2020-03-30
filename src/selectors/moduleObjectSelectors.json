@@ -1,6 +1,7 @@
 {
-   "txtEditTitle": ".editable-content #moduleHeader_editableContent",
-   "txtInputTitle": "input#moduleHeader_editableContentInput",
+   "txtEditTitle": "span#moduleHeader_editableContent",
+   "txtModuleTitle": "span#moduleHeader_editableContent.enabled",
+   "txtInputTitle": "span#moduleHeader_editableContent.enabled input#moduleHeader_editableContentInput",
    "iconNewModule": ".dijitReset.dijitInline.dijitIcon.qasymphonyTreeToolbarIcon.qasymphonyTreeToolbarIconNewModule",
    "btnReload": "#moduleHeader_btnReload",
    "projectRoot": ".icon.icon-root"

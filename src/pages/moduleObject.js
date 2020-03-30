@@ -14,15 +14,17 @@ class module extends basePage {
     verifyNavigateSuccessfully = () => {
         cy
             .url()
-            .should('contain', '/project#tab=requirements')
+            .should('contain','/project#tab=requirements')
+    }
+    clickProjectRoot = () => {
+        cy
+            .get(moduleSelectors.projectRoot, {timeout: 30000})
+            .click({force:true})
     }
     pressCreateNewBtn = () => {
-        cy
-            .get(moduleSelectors.projectRoot,{ timeout: 30000 })
-            .click({force: true})
-            .wait(1000)
+         cy 
             .get(moduleSelectors.iconNewModule,{ timeout: 30000 })
-            .click()            
+            .click({force:true})            
     }
     verifyNewModuleBtnCreatedSuccessfully = () => {
         cy
@@ -36,9 +38,16 @@ class module extends basePage {
        cy.wait(1000)
        Cypress.on('uncaught:exception', (err, runnable) => {    
         cy
-            .get(moduleSelectors.txtEditTitle,{ timeout: 30000 }).click({force:true})
+            .get(moduleSelectors.txtEditTitle,{ timeout: 30000 })
+            .select()
+            .click({force:true})
+            
+            .get(moduleSelectors.txtInputTitle,{ timeout: 30000 })
+            .invoke()
+            .click({force:true})
             .wait(2000)
-            .get(moduleSelectors.txtInputTitle,{ timeout: 30000 }).type(moduleName) 
+            .type(moduleName) 
+
             .get(moduleSelectors.btnReload,{ timeout: 30000 }).click({force:true})
       
         // cy.get('#moduleHeader_editableContent').click({force: true}).then(() => {
