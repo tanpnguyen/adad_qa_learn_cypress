@@ -32,5 +32,22 @@ class releasePage extends basePage {
             .get(releaseSelectors.btnSave)
             .click()
     }
+
+    deleteRelease = () => {
+        cy
+            .reload()
+            .get(releaseSelectors.btnSelect)
+            //.first().select()
+            //.click({ multiple: true })
+            .get(releaseSelectors.drpOption)
+            .should('be.visible')
+            .rightclick()
+            .get(releaseSelectors.btnDeleteRelease)
+            //.should('be.visible')
+            .click({ force: true })
+            .get(releaseSelectors.btnConfirm)
+            .should('be.visible')
+            .click({ force: true })
+    }
 }
 export default releasePage

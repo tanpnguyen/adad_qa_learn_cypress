@@ -8,16 +8,24 @@ describe('qTest Manager Release Object', () => {
     beforeEach('Navigate to Admin page',()=>{
         cy.clearCookies()
         cy.login(Cypress.env('username'),Cypress.env('password'))
-        //admin.navigateToAdminPage()
-        //admin.verifyNavigateSuccessfully()
-        //admin.navigateToProjectsTab()
+       // admin.navigateToAdminPage()
+       // admin.verifyNavigateSuccessfully()
+       // admin.navigateToProjectsTab()
         //admin.createNewProject('MaiPhan_Cypress_Projects')        
         //admin.navigateToCreatedProject('MaiPhan_Cypress_Projects')
     });
     
     it('Navigate to Test Plan tab & create new Release object', () => {      
         release.navigateToReleasePage()   
-        release.pressCreateNewBtn()
+        //release.pressCreateNewBtn()
         release.createNewRelease('Mai Release')     
     });
+
+    it('Delete Release object', () => {
+        release.deleteRelease()
+    });
+
+    //after('Delete',()=>{
+    //    admin.deleteProject('MaiPhan_Cypress_Projects')
+    //});
 })

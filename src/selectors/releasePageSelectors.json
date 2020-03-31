@@ -3,5 +3,9 @@
     "lblTestPlan": "#working-tab_project_label",
     "btnNewRelease": "#projectReleaseNewRelease",
     "txtReleaseName": "#portal_release_release_pane_innerEditor .dijitReset.dijitInputInner",
-    "btnSave": "#portal_release_release_saveButton_label"
+    "btnSave": "#portal_release_release_saveButton_label",
+    "btnSelect": ".children-container.removable .tree-row.removable",
+    "btnDeleteRelease": "#test-plan-tree_Delete",
+    "btnConfirm": "#confirmDialogActionYes_label",
+    "drpOption": ".tree-row.removable.selected"
 }
