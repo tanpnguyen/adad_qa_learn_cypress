@@ -2,6 +2,7 @@ import releaseSelectors from '../selectors/releasePageSelectors.json';
 import basePage from './basePage.js'
 
 class releasePage extends basePage {
+    releaseId = 0
     constructor() {
         super()
     }
@@ -24,16 +25,47 @@ class releasePage extends basePage {
 
         this.pressCreateNewBtn()
         cy
-           .get(releaseSelectors.txtReleaseName)
-           .should('be.visible')
-           .click()
-           .type(releaseName)
+            .get(releaseSelectors.txtReleaseName)
+            .should('be.visible')
+            .click()
+            .type(releaseName)
         cy
             .get(releaseSelectors.btnSave)
             .click()
     }
 
-    deleteRelease = () => {
+    getCreatedReleaseId = () => {
+        let stringUrl = null
+        cy
+            .url()
+            .then(url => {
+                stringUrl = url
+                const idPosition = stringUrl.indexOf('id=')
+                let listAndPosition = stringUrl.indexOf('&')
+                let andPosition = 0
+                while (listAndPosition != -1) {
+                    listAndPosition = stringUrl.indexOf('&', listAndPosition + 1)
+                    if (listAndPosition > idPosition) {
+                        andPosition = listAndPosition
+                        break
+                    }
+                }
+                const releaseId = stringUrl.substring(idPosition + 3, andPosition)
+                this.releaseId = releaseId
+            })
+
+    }
+
+    selectRelease = (releaseId) => {
+        //const selectedReleaseSelector = `span[data-objid="${releaseId}" ]`
+        const selectedReleaseSelector = `#test-plan-tree-8-${releaseId}`
+        cy
+            .get(selectedReleaseSelector)
+            .click()
+    }
+
+    deleteRelease = (releaseId) => {
+        this.selectRelease(releaseId)
         cy
             .reload()
             .get(releaseSelectors.btnSelect)
