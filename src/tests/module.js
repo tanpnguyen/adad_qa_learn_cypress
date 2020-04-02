@@ -3,7 +3,10 @@ import module from '../pages/moduleObject';
 
 describe('qTest Manager Module', () => {
     const moduleObj = new moduleObject();
+        
     let mdlName = 'Automated Module'
+    let mdlDescription = 'This is a sample module description created automatically'
+    
 
     beforeEach('Navigate to Requirements page',()=>{
         cy.clearCookies()
@@ -12,12 +15,15 @@ describe('qTest Manager Module', () => {
         moduleObj.verifyNavigateSuccessfully()
     });
 
-    it('Create New Parent Module and Update Name', () => {  
+    it('Create New Parent Module, Update Its name, description; and then delete it', () => {  
         cy.wait(2000)
         moduleObj.createNewParentModule()
         moduleObj.verifyNewModuleBtnCreatedSuccessfully()
         moduleObj.updateModuleName(mdlName)
-        moduleObj.verifyModuleNameUpdatedSuccessfully(mdlName)
-          
+        moduleObj.verifyModuleNameUpdatedSuccessfully(mdlName)   
+        moduleObj.updateModuleProperties(mdlDescription)
+        moduleObj.getModuleIdAndDeleteModule()
+        cy.wait(3000)
+        moduleObj.verifyModuleDeletedSuccessfully()
     });
 })
