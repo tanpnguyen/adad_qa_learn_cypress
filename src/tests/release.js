@@ -4,10 +4,12 @@ import adminPage from '../pages/adminPage.js'
 describe('qTest Manager Release Object', () => {
     const release = new releasePage(); 
     const admin = new adminPage();
-    let testreleaseId
-    beforeEach('Navigate to Admin page',()=>{
+    let testreleaseId;
+    beforeEach('Navigate to Release page',()=>{
         cy.clearCookies()
         cy.login(Cypress.env('username'),Cypress.env('password'))
+        release.navigateToReleasePage() 
+        release.verifyNavigateToReleasePageSuccessfully()  
        // admin.navigateToAdminPage()
        // admin.verifyNavigateSuccessfully()
        // admin.navigateToProjectsTab()
@@ -15,10 +17,9 @@ describe('qTest Manager Release Object', () => {
         //admin.navigateToCreatedProject('MaiPhan_Cypress_Projects')
     });
     
-    it('Navigate to Test Plan tab & create new Release object', () => {      
-        release.navigateToReleasePage()   
-        //release.pressCreateNewBtn()
+    it('Create new Release object', () => {      
         release.createNewRelease('Mai Release')
+        release.verifyNewReleaseIsCreatedSuccessfully()
         cy
         .wrap(release.getCreatedReleaseId())
         .then(()=>{
@@ -27,12 +28,15 @@ describe('qTest Manager Release Object', () => {
         })
     });
 
-    it('Delete Release object', () => {
-        console.log(`release id is: ${release.releaseId}`)
-        release.deleteRelease(release.releaseId)
+    it('Modify Release object', () => {
+        release.modifyDescription(release.releaseId, 'This is Release Description')
     });
 
-    //after('Delete',()=>{
-    //    admin.deleteProject('MaiPhan_Cypress_Projects')
-    //});
+    it('Delete Release object', () => {
+        //console.log(`release id is: ${release.releaseId}`)
+        release.deleteRelease(release.releaseId)
+        release.verifyNewReleaseIsDeletedSuccessfully()
+    });
+
+    
 })

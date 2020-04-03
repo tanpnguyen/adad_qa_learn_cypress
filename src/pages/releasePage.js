@@ -1,6 +1,17 @@
 import releaseSelectors from '../selectors/releasePageSelectors.json';
 import basePage from './basePage.js'
 
+const getIframeDocument = () => {
+    return cy
+    .get(releaseSelectors.txtDescription)
+    .its('0.contentDocument').should('exist')
+  }
+
+const getIframeBody = () => {
+    return getIframeDocument()
+    .its('body').should('not.be.undefined')
+    .then(cy.wrap)
+  }
 class releasePage extends basePage {
     releaseId = 0
     constructor() {
@@ -13,6 +24,12 @@ class releasePage extends basePage {
             .click({ force: true })
             .get(releaseSelectors.lblTestPlan)
             .click()
+    }
+
+    verifyNavigateToReleasePageSuccessfully = () => {
+        cy
+            .url()
+            .should('contain', '/project#tab=testplan') 
     }
 
     pressCreateNewBtn = () => {
@@ -32,6 +49,12 @@ class releasePage extends basePage {
         cy
             .get(releaseSelectors.btnSave)
             .click()
+    }
+
+    verifyNewReleaseIsCreatedSuccessfully = () => {
+        cy
+            .url()
+            .should('contain', 'object=8', 'create=1')
     }
 
     getCreatedReleaseId = () => {
@@ -64,6 +87,25 @@ class releasePage extends basePage {
             .click()
     }
 
+    modifyDescription = (releaseId, releaseDescription) => {
+        this.selectRelease(releaseId)
+        cy
+            .reload()
+            .then(() => {
+                getIframeBody().should('be.visible')
+                    .click({force: true})
+                    .type(releaseDescription)
+                cy
+                    .get(releaseSelectors.btnSave)
+                    .click()
+                    .then(() => {
+                        cy
+                            .get(releaseSelectors.msgSuccess)
+                            .should('contain', 'Changes were saved successfully.')    
+                    })
+            })
+    }
+
     deleteRelease = (releaseId) => {
         this.selectRelease(releaseId)
         cy
@@ -80,6 +122,13 @@ class releasePage extends basePage {
             .get(releaseSelectors.btnConfirm)
             .should('be.visible')
             .click({ force: true })
+    }
+
+    verifyNewReleaseIsDeletedSuccessfully = () => {
+        cy
+            .get(releaseSelectors.releaseIcon)
+            .should('be.visible')
+         
     }
 }
 export default releasePage

@@ -7,5 +7,8 @@
     "btnSelect": ".children-container.removable .tree-row.removable",
     "btnDeleteRelease": "#test-plan-tree_Delete",
     "btnConfirm": "#confirmDialogActionYes_label",
-    "drpOption": ".tree-row.removable.selected"
+    "drpOption": ".tree-row.removable.selected",
+    "releaseIcon" : ".rc-header-icon.release-icon.release-project",
+    "txtDescription" : "#portal_release_release_releaseDescription_editorNode_ifr",
+    "msgSuccess" : ".rc-header-message.rc-header-message-affirmative .rc-header-message-node"
 }
