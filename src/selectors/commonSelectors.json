@@ -1,4 +1,8 @@
 {
     "headerWelcome":"#welcome",
-    "adminMenu": "#userAvatarMenuAdminSetting"
+    "adminMenu": "#userAvatarMenuAdminSetting",
+
+    "requirementMenu": "#working-tab_requirementId_label",
+    "divProjectArea": "#clientProjectArea",
+    "ulClients": "#clientList ul"
 }

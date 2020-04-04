@@ -1,0 +1,17 @@
+{       
+    "btnNewRequirement": "#btnNewReq",
+
+    "titleRequirement": "#customtitlepaneRequirement span[dojoattachpoint='titleNode']",
+    "lblRequirementId": "#customtitlepaneRequirement span.rc-header-id-badge-text",
+    "txtRequirementName": "#customtitlepaneRequirement_innerEditor span.dijitInlineEditBoxDisplayMode",
+    "selectPriority": "div#widget_priorityRequirement_selectNode input.dijitReset.dijitInputField.dijitArrowButtonInner",
+    "selectPriorityArrow": "div#priorityRequirement_selectNode_popup div",
+    "iframeDescription": "#descriptionRequirement_editorNode_ifr",
+    "btnSave": "#saveBtnRequirement",
+
+    "optionDelete": "tr#requirement-tree_Delete td#requirement-tree_Delete_text",
+    "confirmYes": "div.dijitDialogPaneActionBar span[widgetid='confirmDialogActionYes']",
+
+    "lblUser": "#userAvatarWrapper",
+    "optionLogOut": "#userAvatarMenu li#log-out-link"
+}
