@@ -15,9 +15,6 @@
   "bugs": {
     "url": "https://github.com/tanpnguyen/adad_qa_learn_cypress/issues"
   },
-
-  
-  
   "homepage": "https://github.com/tanpnguyen/adad_qa_learn_cypress#readme",
   "dependencies": {
     "cypress": "^4.1.0"

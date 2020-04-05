@@ -6,6 +6,7 @@ class basePage {
         "insights": ""
     }
     adminMenu = commonSelectors.adminMenu
+    defectTab = commonSelectors.tabDefect
 
 }
 export default basePage

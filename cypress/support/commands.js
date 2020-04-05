@@ -1,4 +1,6 @@
 import loginPage from '../../src/pages/loginPage'
+import adminPage from '../../src/pages/adminPage'
+
 Cypress.Commands.add('login', (username, password) => {
     const login = new loginPage()
     cy
@@ -6,3 +8,8 @@ Cypress.Commands.add('login', (username, password) => {
     login.loginAction(username, password)
 
 });
+
+// Cypress.Commands.add('navigateToCreatedProject', (project) => {
+
+
+// });

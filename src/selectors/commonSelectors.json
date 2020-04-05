@@ -1,4 +1,5 @@
 {
     "headerWelcome":"#welcome",
-    "adminMenu": "#userAvatarMenuAdminSetting"
+    "adminMenu": "#userAvatarMenuAdminSetting",
+    "tabDefect": "#working-tab_defect_label"
 }
