@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/tanpnguyen/adad_qa_learn_cypress#readme",
   "dependencies": {
-    "cypress": "^4.2.0"
+    "cypress": "^4.3.0"
   }
 }

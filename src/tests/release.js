@@ -1,10 +1,11 @@
-import releasePage from '../pages/releasePage.js';
-import adminPage from '../pages/adminPage.js'
+import releasePage from '../pages/main_page/releaseTab.js';
+import adminPage from '../pages/admin/adminPage.js'
 
 describe('qTest Manager Release Object', () => {
     const release = new releasePage(); 
     const admin = new adminPage();
     let testreleaseId;
+
     beforeEach('Navigate to Release page',()=>{
         cy.clearCookies()
         cy.login(Cypress.env('username'),Cypress.env('password'))
