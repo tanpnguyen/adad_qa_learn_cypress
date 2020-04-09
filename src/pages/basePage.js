@@ -7,6 +7,8 @@ class basePage {
     }
     adminMenu = commonSelectors.adminMenu
     requirementMenu = commonSelectors.requirementMenu
+    divProjectArea = commonSelectors.divProjectArea
+    ulClients = commonSelectors.ulClients
 
 }
 export default basePage
