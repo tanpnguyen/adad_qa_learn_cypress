@@ -1,12 +1,6 @@
-import adminpage from '../pages/adminPage'
-describe('qTest Manager Admin', () => {
+import adminpage from '../pages/admin/adminPage'
+describe('s', () => {
     const admin = new adminpage();
-
-    // before('Clear cookies and navigate to qTest', () => {
-    //     cy.clearCookies()
-    //     cy.login(Cypress.env('username'),Cypress.env('password'))
-
-    // });
 
     beforeEach('Navigate to Admin page', () => {
         cy.clearCookies()
