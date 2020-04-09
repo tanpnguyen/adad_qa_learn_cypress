@@ -1,5 +1,5 @@
-import loginPage from '../pages/loginPage'
-import requirementPage from '../pages/requirementPage'
+import loginPage from '../pages/login/loginPage.js'
+import requirementPage from '../pages/main_page/requirementTab.js'
 
 describe('Create a requirement in qTest Manager', () => {
     const login = new loginPage();

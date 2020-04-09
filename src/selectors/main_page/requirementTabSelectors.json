@@ -3,7 +3,7 @@
 
     "titleRequirement": "#customtitlepaneRequirement span[dojoattachpoint='titleNode']",
     "lblRequirementId": "#customtitlepaneRequirement span.rc-header-id-badge-text",
-    "txtRequirementName": "#customtitlepaneRequirement_innerEditor span.dijitInlineEditBoxDisplayMode",
+    "txtRequirementName": "#customtitlepaneRequirement_innerEditor span.dijitReset ",
     "selectPriority": "div#widget_priorityRequirement_selectNode input.dijitReset.dijitInputField.dijitArrowButtonInner",
     "selectPriorityArrow": "div#priorityRequirement_selectNode_popup div",
     "iframeDescription": "#descriptionRequirement_editorNode_ifr",

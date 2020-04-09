@@ -5,6 +5,7 @@
     "env": {
         "url": "http://qtest4ta.staging.qtestnet.com/",
         "username": "a.nguyenthivan@ext.tricentis.com",
-        "password": "admin123"
+        "password": "admin123",
+        "projectName": "ADAD_Cypress_Projects"
     }
 }
