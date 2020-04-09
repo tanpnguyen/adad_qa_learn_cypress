@@ -19,14 +19,7 @@ import './commands'
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 Cypress.on('uncaught:exception', (err, runnable) => {
-    // expect(err.message).to.include('something about the error')
-
-    // // using mocha's async done callback to finish
-    // // this test so we prove that an uncaught exception
-    // // was thrown
-    // done()
-
-    // return false to prevent the error from
-    // failing this test
+    // returning false here prevents Cypress from
+    // failing the test
     return false
   })
