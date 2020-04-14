@@ -1,0 +1,16 @@
+{
+    "nineboxIconLocator" : ".ninebox-icon",
+    "nineboxManagerIconContainerLocator" : ".icon-manager",
+    "ifrDesciption": "#portal_release_project_description_description_editorNode_ifr",
+
+    "tabTestCase": "#working-tab_test-design_label",
+    "iconRoot": ".icon.icon-root",
+    "tbNewModule": "#tbtestdesignNewModule",
+    "txtModuleName": "span#moduleHeader_editableContent",
+    "txtInputModuleName": "input#moduleHeader_editableContent",
+    "btnModuleReload": "#moduleHeader_btnReload",
+    "tbNewTestCase": "#tbtestdesignNewTestCase",
+    "txtTestCaseHeader":"#testCaseHeader_editableContent",
+    "txtInputTestCaseHeader":"#testCaseHeader_editableContentInput",
+    "btnTestCaseReload": "#testCaseHeader_btnReload"
+}
